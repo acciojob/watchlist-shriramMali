@@ -32,8 +32,6 @@ public class MovieRepository {
 
     public void saveMovieDirectorPair(String movie, String director){
 
-        //1. Add the movie into Datbase ---> WRONG bcz I dont have te movie object
-
         if(movieMap.containsKey(movie)&&directorMap.containsKey(director)){
 
             List<String> currentMoviesByDirector = new ArrayList<>();
@@ -49,6 +47,18 @@ public class MovieRepository {
 
     }
 
+    public String getDirectorByMovieName(String name){
+        for(String director: directorMovieMapping.keySet()){
+
+            //Iterating in the list of movies by a director.
+            for(String movie: directorMovieMapping.get(director)){
+                if(movie.equals(name))return director;
+            }
+        }
+        return null;
+    }
+    
+    
     public Movie findMovie(String movie){
         return movieMap.get(movie);
     }

@@ -22,7 +22,10 @@ import org.springframework.stereotype.Service;
         public void createMovieDirectorPair(String movie, String director){
             movieRepository.saveMovieDirectorPair(movie, director);
         }
+        public String getDirectorByMovieName(String name){
 
+            return movieRepository.getDirectorByMovieName(name);
+        }
         public Movie findMovie(String movieName){
             return movieRepository.findMovie(movieName);
         }
